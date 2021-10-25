@@ -15,7 +15,7 @@
                 <li><a href="{{ route('home') }}">Início</a></li>
                 <li><a href="{{ route('login') }}">Entrar</a></li>
             </ol>
-            <h2>Login</h2>
+            <h2>Entrar</h2>
         </div>
     </section><!-- End Breadcrumbs -->
 
@@ -24,7 +24,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">{{ __('Login') }}</div>
+                        <div class="card-header">{{ __('Entrar') }}</div>
 
                         <div class="card-body">
                             <form method="POST" action="{{ route('login') }}">
