@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="col-lg-4 col-6 footer-links">
-                    <h4>Links Uteis</h4>
+                    <h4>Links Úteis</h4>
                     <ul>
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('home') }}">Início</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="#">Consultas</a></li>
