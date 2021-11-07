@@ -55,6 +55,14 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'cpf' => ['required', 'string', 'cpf', 'min:11', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'celular_com_ddd', 'min:12'],
+            'address' => ['required', 'string', 'max:255'],
+            'zip_code' => ['required', 'string', 'min:8', 'max:11'],
+            'number' => ['required', 'string', 'max:10'],
+            'distric' => ['required', 'string', 'max:255'],
+            'birth_date' => ['required', 'string', 'date'],
+            'complement' => ['string', 'max:150'],
+            'city_id' => ['required'],
         ]);
     }
 
@@ -72,6 +80,14 @@ class RegisterController extends Controller
             'cpf' => $data['cpf'],
             'password' => Hash::make($data['password']),
             'is_permission' => 0,
+            'phone' => $data['phone'],
+            'address' => $data['address'],
+            'zip_code' => $data['zip_code'],
+            'number' => $data['number'],
+            'distric' => $data['distric'],
+            'birth_date' => $data['birth_date'],
+            'complement' => $data['complement'],
+            'city_id' => $data['city_id'],
         ]);
     }
 }

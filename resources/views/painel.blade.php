@@ -7,6 +7,14 @@
 @section('og_image', asset('assets/img/logo.png'))
 
 @section('content')
+    <style>
+        .btn-huge{
+            max-width: 250px !important;
+            min-width: 250px !important;
+            margin-bottom: 25px !important;
+        ;
+        }
+    </style>
     <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
         <div class="container">
@@ -44,24 +52,58 @@
                             </div>
                         </div>
 
-                        <div class="card-body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user mr-2"></i></br>Usuários</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user mr-2"></i></br>Consultas</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user mr-2"></i></br>Agentes</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user mr-2"></i></br>Postos</a>
+                        @if(Auth::user()->is_permission == 2)
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user mr-2"></i></br>Usuários</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical mr-2"></i></br>Consultas</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user-md mr-2"></i></br>Agentes</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-hospital mr-2"></i></br>Postos</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-stethoscope mr-2"></i></br>Exames/Esp.</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-city mr-2"></i></br>Cidades</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @elseif(Auth::user()->is_permission == 1)
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user mr-2"></i></br>Pacientes</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical mr-2"></i></br>Consultas</a>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-stethoscope mr-2"></i></br>Exames/Esp.</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical mr-2"></i></br>Consultas</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

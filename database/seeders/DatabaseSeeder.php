@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
         // Cria o usuário administrador
         DB::table('users')->insert([
-            'name'          => 'Victor Brescott',
+            'name'          => 'Victor Brescott Leandro Figueiredo',
             'email'         => 'victorbrescott@hotmail.com',
             'cpf'           => '387.921.858-78',
             'is_permission' => 2, // Admin

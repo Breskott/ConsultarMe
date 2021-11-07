@@ -17,13 +17,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'cpf',
-        'password',
-        'is_permission',
-    ];
+    protected $fillable = ['city_id', 'name', 'email', 'cpf', 'email_verified_at', 'password', 'is_permission', 'zip_code', 'address', 'number', 'distric', 'complement', 'birth_date', 'phone', 'remember_token', 'created_at', 'updated_at'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,4 +37,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function medicalAppointments()
+    {
+        return $this->hasMany(MedicalAppointment::class, 'patient_id');
+    }
 }
