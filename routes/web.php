@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PainelController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 # Logout User
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [SiteController::class, 'index'])->name('home');
 
 Route::group(['middleware'=>'auth'], function () {
     Route::get('/painel', [PainelController::class, 'index'])->name('painel');

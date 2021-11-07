@@ -21,6 +21,7 @@ class CreateUnitsTable extends Migration
             $table->string('zip_code', 11);
             $table->string('address');
             $table->string('number', 45);
+            $table->string('extension', 45);
             $table->string('distric');
             $table->bigInteger('city_id')->unsigned();
             $table->string('complement', 150)->nullable();

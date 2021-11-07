@@ -28,7 +28,7 @@ class Units extends Model
     /**
      * @var array
      */
-    protected $fillable = ['city_id', 'description', 'phone', 'zip_code', 'address', 'number', 'distric', 'complement'];
+    protected $fillable = ['city_id', 'description', 'phone', 'zip_code', 'address', 'number', 'extension', 'distric', 'complement'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

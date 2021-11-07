@@ -40,7 +40,7 @@
 
                 <header class="section-header">
                     <h2>Fique por dentro</h2>
-                    <p>Veja os postos de sáude que já funcionam com a gente:</p>
+                    <p>Veja os postos de saúde que temos Tarumã:</p>
                 </header>
 
                 <div class="row">
@@ -52,33 +52,18 @@
                     <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
                         <div class="row align-self-center gy-4">
 
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>PSF Centro</h3>
+                            @php $delay = 0; @endphp
+                            @forelse($units as $unit)
+                                @php  $delay = $delay + 200; @endphp
+                                <div class="col-md-6" data-aos="zoom-out" data-aos-delay="{{ $delay }}">
+                                    <div class="feature-box d-flex align-items-center">
+                                        <i class="bi bi-check"></i>
+                                        <h3>{{ $unit->description }}</h3>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>PSF Lagos</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>PSF Dourados</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>PSF Pássaros</h3>
-                                </div>
-                            </div>
+                            @empty
+                                <h3>Faça o cadastro de postos de saúde</h3>
+                            @endforelse
                         </div>
                     </div>
                 </div>

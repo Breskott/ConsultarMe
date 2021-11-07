@@ -60,11 +60,48 @@ class DatabaseSeeder extends Seeder
         // Cria um posto de saúde
         DB::table('units')->insert([
             'description'   => 'PSF Lagos/Árvores',
-            'phone'         => ' (18) 3373-4502',
+            'phone'         => '(18) 3373-4502',
+            'extension'     => '',
             'zip_code'      => '19820-000',
             'address'       => 'Rua Canjarana',
             'number'        => '73',
             'distric'       => 'Vila das Árvores',
+            'city_id'       => 1,
+        ]);
+
+        // Cria um posto de saúde
+        DB::table('units')->insert([
+            'description'   => 'PSF Centro',
+            'phone'         => '(18) 3373 4500',
+            'extension'     => '6101',
+            'zip_code'      => '19820-000',
+            'address'       => 'Rua Pernambuco',
+            'number'        => '30',
+            'distric'       => 'Centro',
+            'city_id'       => 1,
+        ]);
+
+        // Cria um posto de saúde
+        DB::table('units')->insert([
+            'description'   => 'PSF Dourados',
+            'phone'         => '(18) 3373 4500',
+            'extension'     => '6601',
+            'zip_code'      => '19820-000',
+            'address'       => 'Avenida Paraná',
+            'number'        => '499',
+            'distric'       => 'Vila Dourados',
+            'city_id'       => 1,
+        ]);
+
+        // Cria um posto de saúde
+        DB::table('units')->insert([
+            'description'   => 'PSF Pássaros',
+            'phone'         => '(18) 3373-4502',
+            'extension'     => '6401',
+            'zip_code'      => '19820-000',
+            'address'       => 'Rua Rouxinol',
+            'number'        => '11',
+            'distric'       => 'Vila dos Pássaros',
             'city_id'       => 1,
         ]);
     }
