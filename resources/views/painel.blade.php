@@ -63,9 +63,6 @@
                                             <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical mr-2"></i></br>Consultas</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user-md mr-2"></i></br>Agentes</a>
-                                        </div>
-                                        <div class="col-md-3">
                                             <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-hospital mr-2"></i></br>Postos</a>
                                         </div>
                                         <div class="col-md-3">
