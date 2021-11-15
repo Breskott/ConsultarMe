@@ -41,7 +41,7 @@
                                     <div class="btn-group float-right">
                                         <a href="{{ route('exams.create') }}"
                                            class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip"
-                                           data-original-title="Novo Exames/Especialidades">
+                                           title="Novo Exames/Especialidades">
                                             <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
                                             <span class="btn-inner--text">Cadastrar Exame/Especialidade</span>
                                         </a>
@@ -70,7 +70,7 @@
                                             <form method="POST" id="destroyExam-{{$exam->id}}"
                                                   action="{{ route('exams.destroy', $exam->id)}}">
                                                 <a class="table-action table-action-edit" data-toggle="tooltip"
-                                                   data-original-title="{{ __('Editar Exame/Especialidade') }}"
+                                                   title="{{ __('Editar Exame/Especialidade') }}"
                                                    href="{{ route('exams.edit', $exam->id) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{ method_field('DELETE') }}
@@ -86,7 +86,7 @@
                                                         "
                                                     class="table-action table-action-delete"
                                                     data-toggle="tooltip"
-                                                    data-original-title="{{ __('Excluir Exame/Especialidade') }}"
+                                                    title="{{ __('Excluir Exame/Especialidade') }}"
                                                 >
                                                     <i class="fas fa-times"></i>
                                                 </a>

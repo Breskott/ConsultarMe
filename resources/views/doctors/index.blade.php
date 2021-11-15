@@ -41,7 +41,7 @@
                                     <div class="btn-group float-right">
                                         <a href="{{ route('doctors.create') }}"
                                            class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip"
-                                           data-original-title="Novo Exames/Especialidades">
+                                           title="Novo Médico">
                                             <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
                                             <span class="btn-inner--text">Cadastrar Médico</span>
                                         </a>
@@ -72,7 +72,7 @@
                                             <form method="POST" id="destroyDoctor-{{$doctor->id}}"
                                                   action="{{ route('doctors.destroy', $doctor->id)}}">
                                                 <a class="table-action table-action-edit" data-toggle="tooltip"
-                                                   data-original-title="{{ __('Editar Médico') }}"
+                                                   title="{{ __('Editar Médico') }}"
                                                    href="{{ route('doctors.edit', $doctor->id) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{ method_field('DELETE') }}
@@ -88,7 +88,7 @@
                                                         "
                                                     class="table-action table-action-delete"
                                                     data-toggle="tooltip"
-                                                    data-original-title="{{ __('Excluir Médico') }}"
+                                                    title="{{ __('Excluir Médico') }}"
                                                 >
                                                     <i class="fas fa-times"></i>
                                                 </a>

@@ -41,7 +41,7 @@
                                     <div class="btn-group float-right">
                                         <a href="{{ route('cities.create') }}"
                                            class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip"
-                                           data-original-title="Nova Cidade">
+                                           title="Nova Cidade">
                                             <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
                                             <span class="btn-inner--text">Cadastrar Cidade</span>
                                         </a>
@@ -72,7 +72,7 @@
                                             <form method="POST" id="destroyCidade-{{$city->id}}"
                                                   action="{{ route('cities.destroy', $city->id)}}">
                                                 <a class="table-action table-action-edit" data-toggle="tooltip"
-                                                   data-original-title="{{ __('Editar Cidade') }}"
+                                                   title="{{ __('Editar Cidade') }}"
                                                    href="{{ route('cities.edit', $city->id) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{ method_field('DELETE') }}
@@ -87,7 +87,7 @@
                                                         "
                                                     class="table-action table-action-delete"
                                                     data-toggle="tooltip"
-                                                    data-original-title="{{ __('Excluir Cidade') }}"
+                                                    title="{{ __('Excluir Cidade') }}"
                                                 >
                                                     <i class="fas fa-times"></i>
                                                 </a>

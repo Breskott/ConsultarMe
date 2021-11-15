@@ -44,20 +44,20 @@
                                             <div class="input-group-append">
                                                 <a href="" onclick='document.getElementById("search_form").submit(); return false;'
                                                    class="btn btn-outline-primary btn-round btn-icon" style="margin-left: 15px"  data-toggle="tooltip"
-                                                   data-original-title="Pesquisar">
+                                                   title="Pesquisar">
                                                     <span class="btn-inner--icon"><i class="fas fa-search"></i></span>
                                                     <span class="btn-inner--text">Pesquisar</span>
                                                 </a>
 
                                                 <a href="{{ route('users.index') }}" class="btn btn-outline-danger btn-round btn-icon" style="margin-left: 5px"  data-toggle="tooltip"
-                                                   data-original-title="Limpar">
+                                                   title="Limpar">
                                                     <span class="btn-inner--icon"><i class="fas fa-times"></i></span>
                                                     <span class="btn-inner--text">Limpar</span>
                                                 </a>
 
                                                 <a href="{{ route('users.create') }}"
                                                 class="btn btn-primary btn-round btn-icon" style="margin-left: 5px"  data-toggle="tooltip"
-                                                data-original-title="Novo Usuário">
+                                                title="Novo Usuário">
                                                 <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
                                                 <span class="btn-inner--text">Cadastrar Usuário</span>
                                             </a>
@@ -105,7 +105,7 @@
                                             <form method="POST" id="destroyUser-{{$user->id}}"
                                                   action="{{ route('users.destroy', $user->id)}}">
                                                 <a class="table-action table-action-edit" data-toggle="tooltip"
-                                                   data-original-title="{{ __('Editar Usuário') }}"
+                                                   title="{{ __('Editar Usuário') }}"
                                                    href="{{ route('users.edit', $user->id) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{ method_field('DELETE') }}
@@ -120,7 +120,7 @@
                                                         "
                                                     class="table-action table-action-delete"
                                                     data-toggle="tooltip"
-                                                    data-original-title="{{ __('Excluir Usuário') }}"
+                                                    title="{{ __('Excluir Usuário') }}"
                                                 >
                                                     <i class="fas fa-times"></i>
                                                 </a>

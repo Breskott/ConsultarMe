@@ -44,20 +44,20 @@
                                             <div class="input-group-append">
                                                 <a href="" onclick='document.getElementById("search_form").submit(); return false;'
                                                    class="btn btn-outline-primary btn-round btn-icon" style="margin-left: 15px"  data-toggle="tooltip"
-                                                   data-original-title="Pesquisar">
+                                                   title="Pesquisar">
                                                     <span class="btn-inner--icon"><i class="fas fa-search"></i></span>
                                                     <span class="btn-inner--text">Pesquisar</span>
                                                 </a>
 
                                                 <a href="{{ route('patients.index') }}" class="btn btn-outline-danger btn-round btn-icon" style="margin-left: 5px"  data-toggle="tooltip"
-                                                   data-original-title="Limpar">
+                                                   title="Limpar">
                                                     <span class="btn-inner--icon"><i class="fas fa-times"></i></span>
                                                     <span class="btn-inner--text">Limpar</span>
                                                 </a>
 
                                                 <a href="{{ route('patients.create') }}"
                                                 class="btn btn-primary btn-round btn-icon" style="margin-left: 5px"  data-toggle="tooltip"
-                                                data-original-title="Novo Paciente">
+                                                title="Novo Paciente">
                                                 <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
                                                 <span class="btn-inner--text">Cadastrar Paciente</span>
                                             </a>
@@ -106,7 +106,7 @@
                                             <form method="POST" id="destroyUser-{{$user->id}}"
                                                   action="{{ route('patients.destroy', $user->id)}}">
                                                 <a class="table-action table-action-edit" data-toggle="tooltip"
-                                                   data-original-title="{{ __('Editar Usuário') }}"
+                                                   title="{{ __('Editar Paciente') }}"
                                                    href="{{ route('patients.edit', $user->id) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{ method_field('DELETE') }}

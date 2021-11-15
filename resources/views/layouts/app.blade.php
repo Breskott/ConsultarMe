@@ -124,7 +124,7 @@
 @toastr_render
 
 <!-- JS -->
-<script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
 <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
 <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
@@ -136,6 +136,11 @@
 <script src="{{ asset('assets/js/jquery_mask/jquery.mask.min.js') }}"></script>
 <!-- JS Principal -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 @yield('script_inject')
 </body>
