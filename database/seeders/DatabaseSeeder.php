@@ -40,19 +40,53 @@ class DatabaseSeeder extends Seeder
 
         // Cria o usuário administrador
         DB::table('users')->insert([
+            'name'          => 'Administrador',
+            'email'         => 'admin@breskott.com.br',
+            'cpf'           => '000.000.000-00',
+            'is_permission' => 2, // Admin
+            'password'      => '$2y$10$cEqYfnXcTkIj3zpYwb7voe1aGLRaWvCrIYuCq9F2FH6BZQM3Oolsi',
+            'zip_code'      => '00000-000',
+            'address'       => 'Rua Administrador',
+            'number'        => '0',
+            'distric'       => 'Bairro Administrador',
+            'complement'    => '',
+            'city_id'       => 1,
+            'birth_date'    => '1997-01-01',
+            'phone'         => '(00) 00000-0000',
+            'created_at'    => Carbon::now(),
+            'updated_at'    => Carbon::now(),
+        ]);
+        DB::table('users')->insert([
+            'name'          => 'Agente',
+            'email'         => 'agente@breskott.com.br',
+            'cpf'           => '000.000.000-01',
+            'is_permission' => 1, // Admin
+            'password'      => '$2y$10$cEqYfnXcTkIj3zpYwb7voe1aGLRaWvCrIYuCq9F2FH6BZQM3Oolsi',
+            'zip_code'      => '00000-000',
+            'address'       => 'Rua Agente',
+            'number'        => '0',
+            'distric'       => 'Bairro Agente',
+            'complement'    => '',
+            'city_id'       => 1,
+            'birth_date'    => '1997-01-01',
+            'phone'         => '(00) 00000-0000',
+            'created_at'    => Carbon::now(),
+            'updated_at'    => Carbon::now(),
+        ]);
+        DB::table('users')->insert([
             'name'          => 'Victor Brescott Leandro Figueiredo',
             'email'         => 'victorbrescott@hotmail.com',
             'cpf'           => '387.921.858-78',
-            'is_permission' => 2, // Admin
+            'is_permission' => 0, // Admin
             'password'      => '$2y$10$cEqYfnXcTkIj3zpYwb7voe1aGLRaWvCrIYuCq9F2FH6BZQM3Oolsi',
             'zip_code'      => '19820-000',
-            'address'       => 'Rua Teste',
+            'address'       => 'Rua Diamante',
             'number'        => '20',
-            'distric'       => 'Vila Teste',
-            'complement'    => 'Casa perto da árvore',
+            'distric'       => 'Vila Cristal',
+            'complement'    => 'Casa CDHU',
             'city_id'       => 1,
             'birth_date'    => '1997-03-03',
-            'phone'         => '(18) 9990-0001',
+            'phone'         => '(18) 99693-0799',
             'created_at'    => Carbon::now(),
             'updated_at'    => Carbon::now(),
         ]);
