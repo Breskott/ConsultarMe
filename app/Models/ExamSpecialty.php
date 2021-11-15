@@ -37,4 +37,6 @@ class ExamSpecialty extends Model
     {
         return $this->hasMany(MedicalAppointment::class, 'exam_speciality_id');
     }
+
+    public $timestamps = false;
 }

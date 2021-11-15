@@ -43,7 +43,7 @@ class User extends Authenticatable
      */
     public function city()
     {
-        return $this->belongsTo(City::class, 'city_id');
+        return $this->belongsTo(Cities::class, 'city_id');
     }
 
     /**

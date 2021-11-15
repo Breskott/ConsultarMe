@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // Insere tarumã como padrão e cidades proximas
+        // Cria cidades proximas a regiao
         DB::table('cities')->insert([
             'description'   => 'Tarumã',
             'state'           => 'SP'
@@ -32,11 +32,11 @@ class DatabaseSeeder extends Seeder
             'description'   => 'Cândido Mota',
             'state'         => 'SP'
         ]);
-
         DB::table('cities')->insert([
             'description'   => 'Florínea',
             'state'         => 'SP'
         ]);
+        // Fim Cadastro de cidades proximas ====================================
 
         // Cria o usuário administrador
         DB::table('users')->insert([
@@ -56,8 +56,9 @@ class DatabaseSeeder extends Seeder
             'created_at'    => Carbon::now(),
             'updated_at'    => Carbon::now(),
         ]);
+        // Fim criação usuário =================================================
 
-        // Cria um posto de saúde
+        // Cria os postos de saúde =============================================
         DB::table('units')->insert([
             'description'   => 'PSF Lagos/Árvores',
             'phone'         => '(18) 3373-4502',
@@ -68,8 +69,6 @@ class DatabaseSeeder extends Seeder
             'distric'       => 'Vila das Árvores',
             'city_id'       => 1,
         ]);
-
-        // Cria um posto de saúde
         DB::table('units')->insert([
             'description'   => 'PSF Centro',
             'phone'         => '(18) 3373 4500',
@@ -80,8 +79,6 @@ class DatabaseSeeder extends Seeder
             'distric'       => 'Centro',
             'city_id'       => 1,
         ]);
-
-        // Cria um posto de saúde
         DB::table('units')->insert([
             'description'   => 'PSF Dourados',
             'phone'         => '(18) 3373 4500',
@@ -92,8 +89,6 @@ class DatabaseSeeder extends Seeder
             'distric'       => 'Vila Dourados',
             'city_id'       => 1,
         ]);
-
-        // Cria um posto de saúde
         DB::table('units')->insert([
             'description'   => 'PSF Pássaros',
             'phone'         => '(18) 3373-4502',
@@ -104,5 +99,102 @@ class DatabaseSeeder extends Seeder
             'distric'       => 'Vila dos Pássaros',
             'city_id'       => 1,
         ]);
+        // Fim criação posto de saúde =============================================
+
+        // Cria exame / especialidade
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Alergia e imunologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Anestesiologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Cardiologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Cirurgia geral',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Clínica médica',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Dermatologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Endocrinologia e metabologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Endoscopia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Gastroenterologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Geriatria',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Ginecologia e obstetrícia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Hematologia e hemoterapia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Infectologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Medicina da família',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Medicina do trabalho',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Medicina intensiva',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Medicina legal e perícia médica',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Nefrologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Neurocirurgia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Neurologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Nutrologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Oftalmologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Oncologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Ortopedia e traumatologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Otorrinolaringologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Patologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Pediatria',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Pneumologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Psiquiatria',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Reumatologia',
+        ]);
+        DB::table('exam_specialty')->insert([
+            'description'   => 'Urologia',
+        ]);
+        // Fim criação exames/especialidades ======================================
     }
 }

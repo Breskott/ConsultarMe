@@ -40,7 +40,7 @@
 
                 <header class="section-header">
                     <h2>Fique por dentro</h2>
-                    <p>Veja os postos de saúde que temos Tarumã:</p>
+                    <p>Veja os postos de saúde que exite em Tarumã:</p>
                 </header>
 
                 <div class="row">

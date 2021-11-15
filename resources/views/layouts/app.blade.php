@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @toastr_css
+
     <title>{{ config('app.name', 'ConsultarMe') }} | @yield('title')</title>
     <meta content="Sistema de Consultas de Agendamento para munícipes de Tarumã - SP" name="description">
     <meta content="Sistema, Consulta, Médico, Tarumã-SP, Agendamento, Agendamento Online" name="keywords">
@@ -39,6 +39,8 @@
 
     <!-- CSS Principal -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+    @toastr_css
 </head>
 <body>
 <!-- ======= Menu ======= -->
@@ -80,7 +82,7 @@
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-12 footer-info">
                     <a href="{{ route('home') }}" class="logo d-flex align-items-center">
-                        <img src="assets/img/logo.png" alt="">
+                        <img src="{{ asset('assets/img/logo.png') }}" alt="">
                         <span>Consultar<span style="color: #0d6efd !important;">Me</span></span>
                     </a>
                     <p>O ConsultarMe surgiu através de uma ideia em nosso Projeto da Faculdade que foi idealizado pelo grupo de Tarumã - SP</p>
@@ -90,7 +92,7 @@
                     <h4>Links Úteis</h4>
                     <ul>
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('home') }}">Início</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Consultas</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ route('medical_appointments.index') }}">Consultas</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('login') }}">Entrar</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('register') }}">Cadastro</a></li>
                     </ul>
@@ -99,7 +101,7 @@
                 <div class="col-lg-4 col-6 footer-links">
                     <h4>Agradecimentos a Prefeitura de Tarumã</h4>
                     <a href="https://www.taruma.sp.gov.br/" target="_blank" class="logo d-flex align-items-center">
-                        <img src="assets/img/prefeitura_rodape.png" alt="">
+                        <img src="{{ asset('assets/img/prefeitura_rodape.png') }}" alt="">
                     </a>
                 </div>
 

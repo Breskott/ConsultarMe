@@ -31,7 +31,7 @@
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
+                                    <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Nome Completo') }}</label>
 
                                     <div class="col-md-8">
                                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -143,7 +143,7 @@
                                     <label for="complement" class="col-md-2 col-form-label text-md-right">{{ __('Complemento') }}</label>
 
                                     <div class="col-md-8">
-                                        <input id="complement" type="text" class="form-control @error('complement') is-invalid @enderror" name="complement" value="{{ old('complement') }}" required autocomplete="complement">
+                                        <input id="complement" type="text" class="form-control @error('complement') is-invalid @enderror" name="complement" value="{{ old('complement') }}" autocomplete="complement">
 
                                         @error('complement')
                                         <span class="invalid-feedback" role="alert">
@@ -209,7 +209,6 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>
-
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">

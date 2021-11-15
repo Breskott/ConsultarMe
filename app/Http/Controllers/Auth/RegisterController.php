@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -50,20 +51,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'cpf' => ['required', 'string', 'cpf', 'min:11', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'string', 'celular_com_ddd', 'min:12'],
-            'address' => ['required', 'string', 'max:255'],
-            'zip_code' => ['required', 'string', 'min:8', 'max:11'],
-            'number' => ['required', 'string', 'max:10'],
-            'distric' => ['required', 'string', 'max:255'],
-            'birth_date' => ['required', 'string', 'date'],
-            'complement' => ['string', 'max:150'],
-            'city_id' => ['required'],
-        ]);
+          return Validator::make($data, UserRequest::$rules, [], UserRequest::$attribute);
+//        return Validator::make($data, [
+//            'name' => ['required', 'string', 'max:255'],
+//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//            'cpf' => ['required', 'string', 'cpf', 'min:11', 'unique:users'],
+//            'password' => ['required', 'string', 'min:8', 'confirmed'],
+//            'phone' => ['required', 'string', 'celular_com_ddd', 'min:12'],
+//            'address' => ['required', 'string', 'max:255'],
+//            'zip_code' => ['required', 'string', 'formato_cep',  'min:8', 'max:11'],
+//            'number' => ['required', 'string', 'max:10'],
+//            'distric' => ['required', 'string', 'max:255'],
+//            'birth_date' => ['required', 'string', 'date'],
+//            'complement' => ['max:150'],
+//            'city_id' => ['required'],
+//        ]);
     }
 
     /**

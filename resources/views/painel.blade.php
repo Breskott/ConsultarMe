@@ -57,19 +57,19 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user mr-2"></i></br>Usuários</a>
+                                            <a href="{{ route('users.index') }}" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user fa-3x mr-2"></i></br>Usuários</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical mr-2"></i></br>Consultas</a>
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical fa-3x mr-2"></i></br>Consultas</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-hospital mr-2"></i></br>Postos</a>
+                                            <a href="{{ route('units.index') }}" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-hospital fa-3x mr-2"></i></br>Postos</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-stethoscope mr-2"></i></br>Exames/Esp.</a>
+                                            <a href="{{ route('exams.index') }}" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-stethoscope fa-3x mr-2"></i></br>Exames/Esp.</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-city mr-2"></i></br>Cidades</a>
+                                            <a href="{{ route('cities.index') }}" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-city fa-3x mr-2"></i></br>Cidades</a>
                                         </div>
                                     </div>
                                 </div>
@@ -79,13 +79,13 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user mr-2"></i></br>Pacientes</a>
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-user fa-3x mr-2"></i></br>Pacientes</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical mr-2"></i></br>Consultas</a>
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical fa-3x mr-2"></i></br>Consultas</a>
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-stethoscope mr-2"></i></br>Exames/Esp.</a>
+                                            <a href="{{ route('exams.index') }}" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fas fa-stethoscope fa-3x mr-2"></i></br>Exames/Esp.</a>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical mr-2"></i></br>Consultas</a>
+                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical fa-3x mr-2"></i></br>Consultas</a>
                                         </div>
                                     </div>
                                 </div>

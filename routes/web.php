@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\ExamSpecialtyController;
 use App\Http\Controllers\PainelController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UnitsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +23,25 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name
 
 Route::get('/', [SiteController::class, 'index'])->name('home');
 
-Route::group(['middleware'=>'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/painel', [PainelController::class, 'index'])->name('painel');
 });
 
+Route::group(['middleware' => 'auth'], function () {
+    // Routes agent and admin
+    Route::group(['middleware' => 'check-permission:admin|agente'], function () {
+        Route::resource('exams', ExamSpecialtyController::class);
+    });
+
+    // Routes admin
+    Route::group(['middleware' => 'check-permission:admin'], function () {
+        Route::resource('units', UnitsController::class);
+        Route::resource('cities', CitiesController::class);
+        Route::resource('users', UserController::class);
+    });
+
+    Route::group(['middleware' => 'check-permission:admin|agente|municipe'], function () {
+        Route::resource('medical_appointments', ExamSpecialtyController::class);
+    });
+});
 Auth::routes();
