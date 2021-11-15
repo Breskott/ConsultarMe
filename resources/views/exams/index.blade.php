@@ -41,7 +41,7 @@
                                     <div class="btn-group float-right">
                                         <a href="{{ route('exams.create') }}"
                                            class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip"
-                                           data-original-title="Novo Servidor">
+                                           data-original-title="Novo Exames/Especialidades">
                                             <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
                                             <span class="btn-inner--text">Cadastrar Exame/Especialidade</span>
                                         </a>
@@ -95,7 +95,15 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    {{ __('Não existe exames/especialidades cadastrado!') }}
+                                    <div class="container" style="padding-top: 15px">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="alert alert-danger" role="alert">
+                                                    {{ __('Não existe exames/especialidades cadastrado!') }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforelse
                                 </tbody>
                             </table>

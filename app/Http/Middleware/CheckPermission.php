@@ -28,6 +28,6 @@ class CheckPermission
             return $next($request);
         }
 
-        return response()->view('errors.403');
+        return abort(403, __('Forbidden'));
     }
 }

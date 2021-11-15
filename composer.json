@@ -15,6 +15,7 @@
         "laravel/ui": "^3.3",
         "laravellegends/pt-br-validator": "^8.0",
         "nesbot/carbon": "^2.53",
+        "spatie/laravel-query-builder": "^4.0",
         "yoeunes/toastr": "^1.2"
     },
     "require-dev": {

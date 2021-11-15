@@ -54,4 +54,12 @@ class MedicalAppointment extends Model
     {
         return $this->belongsTo(User::class, 'patient_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class, 'doctor_id');
+    }
 }

@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\ExamSpecialtyController;
 use App\Http\Controllers\PainelController;
+use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UnitsController;
 use App\Http\Controllers\UserController;
@@ -31,6 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Routes agent and admin
     Route::group(['middleware' => 'check-permission:admin|agente'], function () {
         Route::resource('exams', ExamSpecialtyController::class);
+        Route::resource('patients', PatientsController::class);
+        Route::resource('doctors', DoctorsController::class);
     });
 
     // Routes admin

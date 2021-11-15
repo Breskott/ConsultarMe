@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', __('Postos de Saúde'))
+@section('title', __('Médicos'))
 
 @section('description', __('Sistema de Consultas de Agendamento para munícipes de Tarumã - SP'))
 
@@ -20,9 +20,9 @@
 
             <ol>
                 <li><a href="{{ route('home') }}">Início</a></li>
-                <li><a href="{{ route('units.index') }}">Postos de Saúde</a></li>
+                <li><a href="{{ route('doctors.index') }}">Médicos</a></li>
             </ol>
-            <h2>Postos de Saúde</h2>
+            <h2>Médicos</h2>
         </div>
     </section><!-- End Breadcrumbs -->
 
@@ -35,15 +35,15 @@
                             <div class="row">
 
                                 <div class="col-md-6">
-                                    <div style="padding-top: 10px">{{ __('Postos de Saúde') }}</div>
+                                    <div style="padding-top: 10px">{{ __('Médicos') }}</div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="btn-group float-right">
-                                        <a href="{{ route('units.create') }}"
+                                        <a href="{{ route('doctors.create') }}"
                                            class="btn btn-sm btn-primary btn-round btn-icon" data-toggle="tooltip"
-                                           data-original-title="Novo Posto de Saúde">
+                                           data-original-title="Novo Exames/Especialidades">
                                             <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
-                                            <span class="btn-inner--text">Cadastrar Posto de Saúde</span>
+                                            <span class="btn-inner--text">Cadastrar Médico</span>
                                         </a>
                                     </div>
                                 </div>
@@ -56,48 +56,43 @@
                                 <thead class="thead-light">
                                 <tr>
                                     <th>{{ __('ID') }}</th>
-                                    <th>{{ __('Posto') }}</th>
-                                    <th>{{ __('Endereço') }}</th>
-                                    <th>{{ __('Telefone/Ramal') }}</th>
+                                    <th>{{ __('Nome') }}</th>
+                                    <th>{{ __('CRM') }}</th>
                                     <th>{{ __('Ações') }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($units as $unit)
+                                @forelse($doctors as $doctor)
                                     <tr>
-                                        <td>#{{ $unit->id }}</td>
-                                        <td>{{ ucfirst($unit->description) }}</td>
-                                        <td>{{ $unit->address}}, Nº: {{ $unit->number }}, {{ $unit->distric }}, {{ $unit->city()->first()->description }}-{{ $unit->city()->first()->state }}</td>
-                                        @if($unit->extension == "")
-                                            <td>{{ $unit->phone}} </td>
-                                        @else
-                                            <td>{{ $unit->phone}} / Ramal: {{ $unit->extension }}</td>
-                                        @endif
-
+                                        <td>#{{ $doctor->id }}</td>
+                                        <td>{{ ucfirst($doctor->name) }}</td>
+                                        <td>{{ $doctor->crm }}</td>
 
                                         <td class="table-actions">
-                                            <form method="POST" id="destroyUnits-{{$unit->id}}"
-                                                  action="{{ route('units.destroy', $unit->id)}}">
+                                            <form method="POST" id="destroyDoctor-{{$doctor->id}}"
+                                                  action="{{ route('doctors.destroy', $doctor->id)}}">
                                                 <a class="table-action table-action-edit" data-toggle="tooltip"
-                                                   data-original-title="{{ __('Editar Posto de Saúde') }}"
-                                                   href="{{ route('units.edit', $unit->id) }}"><i
+                                                   data-original-title="{{ __('Editar Médico') }}"
+                                                   href="{{ route('doctors.edit', $doctor->id) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{ method_field('DELETE') }}
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                @if(Auth::user()->is_permission == 2)
                                                 <a
                                                     href=""
                                                     type="submit"
                                                     onclick="
                                                         event.preventDefault();
-                                                        let destroy = confirm('{{ __('Deseja realmente excluir esse posto de saúde?') }}');
-                                                        if(destroy){ document.getElementById('destroyUnits-{{$unit->id}}').submit(); }
+                                                        let destroy = confirm('{{ __('Deseja realmente excluir esse médico?') }}');
+                                                        if(destroy){ document.getElementById('destroyDoctor-{{$doctor->id}}').submit(); }
                                                         "
                                                     class="table-action table-action-delete"
                                                     data-toggle="tooltip"
-                                                    data-original-title="{{ __('Excluir Posto de Saúde') }}"
+                                                    data-original-title="{{ __('Excluir Médico') }}"
                                                 >
                                                     <i class="fas fa-times"></i>
                                                 </a>
+                                                @endif
                                             </form>
                                         </td>
                                     </tr>
@@ -106,7 +101,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="alert alert-danger" role="alert">
-                                                    {{ __('Não existem postos de saúdes cadastrados!') }}
+                                                    {{ __('Não existe médicos cadastrados!') }}
                                                 </div>
                                             </div>
                                         </div>
@@ -117,7 +112,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="text-center">
-                                @include('components.pagination', ['paginator' => $units])
+                                @include('components.pagination', ['paginator' => $doctors])
                             </div>
                         </div>
                     </div>

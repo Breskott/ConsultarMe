@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', __('Usuários'))
+@section('title', __('Pacientes'))
 
 @section('description', __('Sistema de Consultas de Agendamento para munícipes de Tarumã - SP'))
 
@@ -20,9 +20,9 @@
 
             <ol>
                 <li><a href="{{ route('home') }}">Início</a></li>
-                <li><a href="{{ route('users.index') }}">Usuários</a></li>
+                <li><a href="{{ route('patients.index') }}">Pacientes</a></li>
             </ol>
-            <h2>Usuários</h2>
+            <h2>Pacientes</h2>
         </div>
     </section><!-- End Breadcrumbs -->
 
@@ -35,12 +35,12 @@
                             <div class="row">
 
                                 <div class="col-md-4">
-                                    <div style="padding-top: 10px">{{ __('Usuários') }}</div>
+                                    <div style="padding-top: 10px">{{ __('Pacientes') }}</div>
                                 </div>
                                 <div class="col-md-8">
-                                    <form id="search_form" action="{{ route('users.index') }}" method="GET">
+                                    <form id="search_form" action="{{ route('patients.index') }}" method="GET">
                                     <div class="input-group mb-3">
-                                            <input type="text" value="{{ old('filter[name]', request()->has('filter') ? request()->filter['name'] : "") }}" class="form-control" name="filter[name]" id="filter[name]" placeholder="Pesquisar Usuário">
+                                            <input type="text" value="{{ old('filter[name]', request()->has('filter') ? request()->filter['name'] : "") }}" class="form-control" name="filter[name]" id="filter[name]" placeholder="Pesquisar Paciente">
                                             <div class="input-group-append">
                                                 <a href="" onclick='document.getElementById("search_form").submit(); return false;'
                                                    class="btn btn-outline-primary btn-round btn-icon" style="margin-left: 15px"  data-toggle="tooltip"
@@ -49,17 +49,17 @@
                                                     <span class="btn-inner--text">Pesquisar</span>
                                                 </a>
 
-                                                <a href="{{ route('users.index') }}" class="btn btn-outline-danger btn-round btn-icon" style="margin-left: 5px"  data-toggle="tooltip"
+                                                <a href="{{ route('patients.index') }}" class="btn btn-outline-danger btn-round btn-icon" style="margin-left: 5px"  data-toggle="tooltip"
                                                    data-original-title="Limpar">
                                                     <span class="btn-inner--icon"><i class="fas fa-times"></i></span>
                                                     <span class="btn-inner--text">Limpar</span>
                                                 </a>
 
-                                                <a href="{{ route('users.create') }}"
+                                                <a href="{{ route('patients.create') }}"
                                                 class="btn btn-primary btn-round btn-icon" style="margin-left: 5px"  data-toggle="tooltip"
-                                                data-original-title="Novo Usuário">
+                                                data-original-title="Novo Paciente">
                                                 <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
-                                                <span class="btn-inner--text">Cadastrar Usuário</span>
+                                                <span class="btn-inner--text">Cadastrar Paciente</span>
                                             </a>
 
                                         </div>
@@ -101,29 +101,16 @@
                                             @endif
                                         </td>
 
+
                                         <td class="table-actions">
                                             <form method="POST" id="destroyUser-{{$user->id}}"
-                                                  action="{{ route('users.destroy', $user->id)}}">
+                                                  action="{{ route('patients.destroy', $user->id)}}">
                                                 <a class="table-action table-action-edit" data-toggle="tooltip"
                                                    data-original-title="{{ __('Editar Usuário') }}"
-                                                   href="{{ route('users.edit', $user->id) }}"><i
+                                                   href="{{ route('patients.edit', $user->id) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{ method_field('DELETE') }}
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <a
-                                                    href=""
-                                                    type="submit"
-                                                    onclick="
-                                                        event.preventDefault();
-                                                        let destroy = confirm('{{ __('Deseja realmente excluir esse usuário?') }}');
-                                                        if(destroy){ document.getElementById('destroyUser-{{$user->id}}').submit(); }
-                                                        "
-                                                    class="table-action table-action-delete"
-                                                    data-toggle="tooltip"
-                                                    data-original-title="{{ __('Excluir Usuário') }}"
-                                                >
-                                                    <i class="fas fa-times"></i>
-                                                </a>
                                             </form>
                                         </td>
                                     </tr>
@@ -132,7 +119,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="alert alert-danger" role="alert">
-                                                    {{ __('Não existem usuários cadastrados, ou sua pesquisa não encontrou nenhum resultado!') }}
+                                                    {{ __('Não existem pacientes cadastrados, ou sua pesquisa não encontrou nenhum resultado!') }}
                                                 </div>
                                             </div>
                                         </div>

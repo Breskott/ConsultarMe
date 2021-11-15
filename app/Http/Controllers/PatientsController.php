@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class UserController extends Controller
+class PatientsController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
@@ -26,14 +26,15 @@ class UserController extends Controller
             $users = QueryBuilder::for(User::class)
                 ->allowedFilters('name')
                 ->orderBy('id', 'desc')
+                ->where('is_permission', '=', '0') // Filter permission
                 ->paginate(15);
 
-            return view('users.index')->with(['users' => $users]);
+            return view('patients.index')->with(['users' => $users]);
         }
         else {
-            $users = User::orderBy('id', 'desc')->paginate(15);
+            $users = User::where('is_permission','=', '0')->orderBy('id', 'desc')->paginate(15); // Filter permission
 
-            return view('users.index')->with(['users' => $users]);
+            return view('patients.index')->with(['users' => $users]);
         }
     }
 
@@ -44,7 +45,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('patients.create');
     }
 
     /**
@@ -63,7 +64,7 @@ class UserController extends Controller
                 'email' => request('email'),
                 'cpf' => request('cpf'),
                 'password' => Hash::make(request('password')),
-                'is_permission' => request('is_permission'),
+                'is_permission' => 0,
                 'phone' => request('phone'),
                 'address' => request('address'),
                 'zip_code' => request('zip_code'),
@@ -76,9 +77,9 @@ class UserController extends Controller
 
             DB::commit();
 
-            toastr()->success(__('Usuário salvo com sucesso!'));
+            toastr()->success(__('Paciente salvo com sucesso!'));
 
-            return redirect()->route('users.index');
+            return redirect()->route('patients.index');
 
         } catch (Exception $e) {
             DB::rollback();
@@ -100,56 +101,34 @@ class UserController extends Controller
         $users = User::find($id);
 
         if (is_null($users)) {
-            abort(404, __('Usuário não encontrado!'));
+            abort(404, __('Paciente não encontrado!'));
         }
 
         try {
             DB::beginTransaction();
 
-            if (!empty($request['password'])) {
-                $users->fill([
-                    'name' => ucfirst(request('name')),
-                    'email' => request('email'),
-                    'cpf' => request('cpf'),
-                    'password' => Hash::make(request('password')),
-                    'is_permission' => request('is_permission'),
-                    'phone' => request('phone'),
-                    'address' => request('address'),
-                    'zip_code' => request('zip_code'),
-                    'number' => request('number'),
-                    'distric' => request('distric'),
-                    'birth_date' => request('birth_date'),
-                    'complement' => request('complement') == "" ? "" : request('complement'),
-                    'city_id' => request('city_id'),
-                ]);
-                $users->save();
+            $users->fill([
+                'name' => ucfirst(request('name')),
+                'email' => request('email'),
+                'cpf' => request('cpf'),
+                'phone' => request('phone'),
+                'address' => request('address'),
+                'zip_code' => request('zip_code'),
+                'number' => request('number'),
+                'distric' => request('distric'),
+                'birth_date' => request('birth_date'),
+                'complement' => request('complement') == "" ? "" : request('complement'),
+                'city_id' => request('city_id'),
+            ]);
+            $users->save();
 
-                DB::commit();
-            }
-            else {
-                $users->fill([
-                    'name' => ucfirst(request('name')),
-                    'email' => request('email'),
-                    'cpf' => request('cpf'),
-                    'is_permission' => request('is_permission'),
-                    'phone' => request('phone'),
-                    'address' => request('address'),
-                    'zip_code' => request('zip_code'),
-                    'number' => request('number'),
-                    'distric' => request('distric'),
-                    'birth_date' => request('birth_date'),
-                    'complement' => request('complement') == "" ? "" : request('complement'),
-                    'city_id' => request('city_id'),
-                ]);
-                $users->save();
-
-                DB::commit();
-            }
+            DB::commit();
 
 
-            toastr()->success(__('Usuário salvo com sucesso!'));
 
-            return redirect()->route('users.index');
+            toastr()->success(__('Paciente salvo com sucesso!'));
+
+            return redirect()->route('patients.index');
 
         } catch (Exception $e) {
             DB::rollback();
@@ -170,10 +149,10 @@ class UserController extends Controller
         $users = User::find($id);
 
         if (is_null($users)) {
-            abort(404, __('Usuário não encontrado!'));
+            abort(404, __('Paciente não encontrado!'));
         }
 
-        return view('users.edit', [
+        return view('patients.edit', [
             'users' => $users
         ]);
     }
@@ -186,10 +165,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $users = User::find($id);
-        $users->delete();
+        // Not use
 
-        toastr()->success(__('Usuário excluído com sucesso!'));
+        //$users = User::find($id);
+        //$users->delete();
+
+        //toastr()->success(__('Paciente excluído com sucesso!'));
 
         return back();
     }

@@ -19,6 +19,7 @@ class CreateMedicalAppointmentTable extends Migration
             $table->string('description');
             $table->bigInteger('patient_id')->unsigned();
             $table->bigInteger('exam_speciality_id')->unsigned();
+            $table->bigInteger('doctor_id')->unsigned();
             $table->string('tab_number', 45);
             $table->dateTime('tab_datetime');
             $table->dateTime('schedule_datetime')->nullable();
@@ -29,6 +30,8 @@ class CreateMedicalAppointmentTable extends Migration
             $table->foreign('patient_id')->references('id')->on('users');
 
             $table->foreign('exam_speciality_id')->references('id')->on('exam_specialty');
+
+            $table->foreign('doctor_id')->references('id')->on('doctors');
 
         });
     }
