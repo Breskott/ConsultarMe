@@ -16,7 +16,6 @@ class CreateMedicalAppointmentTable extends Migration
         Schema::create('medical_appointment', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('description');
             $table->bigInteger('patient_id')->unsigned();
             $table->bigInteger('exam_speciality_id')->unsigned();
             $table->bigInteger('doctor_id')->unsigned();

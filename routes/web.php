@@ -3,6 +3,7 @@
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\ExamSpecialtyController;
+use App\Http\Controllers\MedicalAppointmentsController;
 use App\Http\Controllers\PainelController;
 use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\SiteController;
@@ -35,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('exams', ExamSpecialtyController::class);
         Route::resource('patients', PatientsController::class);
         Route::resource('doctors', DoctorsController::class);
+        Route::resource('medical_appointments', MedicalAppointmentsController::class);
     });
 
     // Routes admin
