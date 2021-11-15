@@ -92,6 +92,13 @@ class DatabaseSeeder extends Seeder
         ]);
         // Fim criação usuário =================================================
 
+        // Cria os médicos =====================================================
+        DB::table('doctors')->insert([
+            'name'   => 'Damião Gonçalves de Farias',
+            'crm'    => '123456',
+        ]);
+        // Fim criação médicos =================================================
+
         // Cria os postos de saúde =============================================
         DB::table('units')->insert([
             'description'   => 'PSF Lagos/Árvores',

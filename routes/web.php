@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => 'check-permission:admin|agente|municipe'], function () {
-        Route::resource('medical_appointments', ExamSpecialtyController::class);
+
     });
 });
 Auth::routes();

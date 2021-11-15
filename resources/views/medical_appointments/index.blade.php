@@ -70,15 +70,21 @@
                                         <td>#{{ $medical->id }}</td>
                                         <td>{{ $medical->tab_number }}</td>
                                         <td>{{ $medical->user()->first()->name }}</td>
-                                        <td>{{ $medical->examSpecialty()->first()->description() }}</td>
-                                        <td>{{ $medical->examSpecialty()->first()->name }}</td>
-                                        <td>{{ $medical->schedule_datetime }}</td>
+                                        <td>{{ $medical->examSpecialty()->first()->description }}</td>
+                                        <td>{{ $medical->doctor()->first()->name }}</td>
+                                        <td>
+                                            @if(\Carbon\Carbon::now() >= $medical->schedule_datetime)
+                                                <span class="badge badge-danger badge-sm badge-pill">{{ \Carbon\Carbon::createFromDate($medical->schedule_datetime)->format('d/m/Y H:i') }} (Vencida)</span>
+                                            @else
+                                                <span class="badge badge-success badge-sm badge-pill">{{ \Carbon\Carbon::createFromDate($medical->schedule_datetime)->format('d/m/Y H:i') }}</span>
+                                            @endif
+                                        </td>
 
                                         <td class="table-actions">
                                             <form method="POST" id="destroyConsult-{{$medical->id}}"
                                                   action="{{ route('medical_appointments.destroy', $medical->id)}}">
                                                 <a class="table-action table-action-edit" data-toggle="tooltip"
-                                                   title="{{ __('Editar Consulta) }}"
+                                                   title="{{ __('Editar Consulta') }}"
                                                    href="{{ route('medical_appointments.edit', $medical->id) }}"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{ method_field('DELETE') }}
@@ -89,7 +95,7 @@
                                                         type="submit"
                                                         onclick="
                                                             event.preventDefault();
-                                                            let destroy = confirm('{{ __('Deseja realmente excluir esse exame/especialidade?') }}');
+                                                            let destroy = confirm('{{ __('Deseja realmente excluir essa consulta?') }}');
                                                             if(destroy){ document.getElementById('destroyConsult-{{$medical->id}}').submit(); }
                                                             "
                                                         class="table-action table-action-delete"

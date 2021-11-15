@@ -23,4 +23,49 @@ class MedicalAppointmentsController extends Controller
 
         return view('medical_appointments.index')->with(['medical_appointments' => $medical_appointments]);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('medical_appointments.create');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $medical_appointments = MedicalAppointment::find($id);
+
+        if (is_null($medical_appointments)) {
+            abort(404, __('Consulta não encontrada!'));
+        }
+
+        return view('medical_appointments.edit', [
+            'medical_appointments' => $medical_appointments
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $medical_appointments = MedicalAppointment::find($id);
+        $medical_appointments->delete();
+
+        toastr()->success(__('Consulta excluída com sucesso!'));
+
+        return back();
+    }
 }
