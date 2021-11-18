@@ -37,7 +37,7 @@ class MedicalAppointment extends Model
     /**
      * @var array
      */
-    protected $fillable = ['patient_id', 'exam_speciality_id', 'tab_number', 'tab_datetime', 'schedule_datetime', 'tab_central_vacancy', 'comments', 'files'];
+    protected $fillable = ['patient_id', 'exam_speciality_id', 'doctor_id', 'units_id', 'tab_number', 'tab_datetime', 'schedule_datetime', 'tab_central_vacancy', 'comments', 'files', 'city_id', 'address', 'number', 'distric'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -62,4 +62,22 @@ class MedicalAppointment extends Model
     {
         return $this->belongsTo(Doctor::class, 'doctor_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function units()
+    {
+        return $this->belongsTo(Units::class, 'units_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function cities()
+    {
+        return $this->belongsTo(Cities::class, 'city_id');
+    }
+
+    public $timestamps = false;
 }

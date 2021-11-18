@@ -9,10 +9,9 @@
 @section('content')
     <style>
         .btn-huge{
-            max-width: 250px !important;
-            min-width: 250px !important;
+            max-width: 240px !important;
+            min-width: 240px !important;
             margin-bottom: 25px !important;
-        ;
         }
     </style>
     <!-- ======= Breadcrumbs ======= -->

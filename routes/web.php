@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutoCompleteController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\ExamSpecialtyController;
@@ -37,6 +38,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('patients', PatientsController::class);
         Route::resource('doctors', DoctorsController::class);
         Route::resource('medical_appointments', MedicalAppointmentsController::class);
+
+        // Autocomplete select2
+        Route::get('autocompletename', [AutoCompleteController::class, 'autocompletename'])->name('autocompletename');
+        Route::get('autocompleteexam', [AutoCompleteController::class, 'autocompleteexam'])->name('autocompleteexam');
+        Route::get('autocompletedoctor', [AutoCompleteController::class, 'autocompletedoctor'])->name('autocompletedoctor');
+        Route::get('autocompleteunits', [AutoCompleteController::class, 'autocompleteunits'])->name('autocompleteunits');
     });
 
     // Routes admin

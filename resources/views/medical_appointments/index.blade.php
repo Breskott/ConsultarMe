@@ -132,8 +132,7 @@
                                                 {{ method_field('DELETE') }}
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 @if(Auth::user()->is_permission == 2)
-                                                    <a
-                                                        href=""
+                                                    <a href=""
                                                         type="submit"
                                                         onclick="
                                                             event.preventDefault();
@@ -142,8 +141,7 @@
                                                             "
                                                         class="table-action table-action-delete"
                                                         data-toggle="tooltip"
-                                                        title="{{ __('Excluir Consulta') }}"
-                                                    >
+                                                        title="{{ __('Excluir Consulta') }}">
                                                         <i class="fas fa-times"></i>
                                                     </a>
                                                 @endif

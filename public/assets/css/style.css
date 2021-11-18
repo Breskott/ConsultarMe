@@ -2240,6 +2240,7 @@ th {
     text-align: right !important;
 }
 
+/*
 .container {
     width: 100%;
     margin-right: auto;
@@ -2247,6 +2248,7 @@ th {
     padding-right: 15px;
     padding-left: 15px;
 }
+*/
 
 tbody {
     display: table-row-group;

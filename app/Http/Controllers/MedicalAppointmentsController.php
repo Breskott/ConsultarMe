@@ -8,10 +8,14 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
+use App\Models\ExamSpecialty;
 use App\Models\MedicalAppointment;
 use App\Http\Requests\ExamSpecialtyRequest;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class MedicalAppointmentsController extends Controller
 {
@@ -51,6 +55,27 @@ class MedicalAppointmentsController extends Controller
         return view('medical_appointments.edit', [
             'medical_appointments' => $medical_appointments
         ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request)
+    {
+        //dd($request);
+        $validator = Validator::make($request->all(), [
+            'doctor_id' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()
+                ->route('medical_appointments.create')
+                ->withInput($request->all())
+                ->withErrors($validator);
+        }
+        //dd($request);
     }
 
     /**
