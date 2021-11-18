@@ -9,7 +9,7 @@ Nosso projeto foi feito em cima da versão do Laravel 8, e tem como função pri
 - Cadastro de munícipes;
 - Cadastro de Postos de Saúdes;
 - Cadastro de Postos de Agentes responsáveis pelas Consultas;
-- Aviso de Consulta por E-mail;
+- Aviso de Consulta por WhatsApp;
 - Sistema de Administração para Controle.
 
 ## Licença do Script
