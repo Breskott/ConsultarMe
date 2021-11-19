@@ -65,7 +65,37 @@ class MedicalAppointmentsController extends Controller
      */
     public function store(MedicalAppointmentRequest $request)
     {
-        dd($request);
+        try {
+            DB::beginTransaction();
+
+            $exams = MedicalAppointment::create([
+                'pacient_id' => request('pacient_id'),
+                'exam_speciality_id' => request('exam_speciality_id'),
+                'doctor_id' => request('doctor_id'),
+                'units_id' => request('units_id'),
+                'tab_number' => request('tab_number'),
+                'schedule_datetime' => request('schedule_datetime'), // editar esse
+                'tab_central_vacancy' => request('tab_central_vacancy'),
+                'comments' => request('comments'),
+                'files' => request('files'), // editar esse
+                'address' => request('address'),
+                'number' => request('number'),
+                'distric' => request('distric'),
+                'city_id' => request('city_id'),
+            ]);
+
+            DB::commit();
+
+            toastr()->success(__('Consulta salva com sucesso!'));
+
+            return redirect()->route('medical_appointments.index');
+
+        } catch (Exception $e) {
+            DB::rollback();
+            return redirect()->back()->withInput()->withErrors([
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 
     /**
