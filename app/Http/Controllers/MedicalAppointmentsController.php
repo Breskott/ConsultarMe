@@ -11,7 +11,7 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use App\Models\ExamSpecialty;
 use App\Models\MedicalAppointment;
-use App\Http\Requests\ExamSpecialtyRequest;
+use App\Http\Requests\MedicalAppointmentRequest;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -63,19 +63,9 @@ class MedicalAppointmentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(MedicalAppointmentRequest $request)
     {
-        //dd($request);
-        $validator = Validator::make($request->all(), [
-            'doctor_id' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return redirect()
-                ->route('medical_appointments.create')
-                ->withInput($request->all())
-                ->withErrors($validator);
-        }
-        //dd($request);
+        dd($request);
     }
 
     /**

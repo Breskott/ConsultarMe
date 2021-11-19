@@ -37,7 +37,7 @@ class MedicalAppointment extends Model
     /**
      * @var array
      */
-    protected $fillable = ['patient_id', 'exam_speciality_id', 'doctor_id', 'units_id', 'tab_number', 'tab_datetime', 'schedule_datetime', 'tab_central_vacancy', 'comments', 'files', 'city_id', 'address', 'number', 'distric'];
+    protected $fillable = ['patient_id', 'exam_speciality_id', 'doctor_id', 'units_id', 'tab_number', 'schedule_datetime', 'tab_central_vacancy', 'comments', 'files', 'city_id', 'address', 'number', 'distric'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

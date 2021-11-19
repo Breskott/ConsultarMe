@@ -158,24 +158,28 @@
 
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                        <select class="form-control m-b" name="city_id">
-                                            @forelse(\App\Models\Cities::all() as $city)
-                                                <option value="{{ $city->id }}" value="{{ $city->id }}" @if(old('city_id') == $city->id) selected @endif>{{ $city->description }}/{{ $city->state }}</option>
-                                            @empty
-                                                <option value="0">Não existem cidades para fazer seu cadastro</option>
-                                            @endforelse
-                                        </select>
-                                        </div>
-                                        @error('city_id')
-                                        <span class="invalid-feedback" role="alert">
+                                            <select
+                                                class="city_id form-control @error('city_id') is-invalid @enderror"
+                                                name="city_id">
+                                                @if(old('city_id')  != null)
+                                                    <option value="{{ old('city_id') }}" selected="selected">
+                                                        {{ old('city_description') }}
+                                                    </option>
+                                                @endif
+                                            </select>
+                                            <input type="hidden" id="city_description" name="city_description"
+                                                   value="{{ old('city_description') }}"/>
+
+                                            @error('city_id')
+                                            <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror
+                                            @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email" class="col-md-2 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    <label for="email" class="col-md-2 col-form-label text-md-right">{{ __('E-mail') }}</label>
 
                                     <div class="col-md-8">
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -231,6 +235,32 @@
         $('#cpf').mask('999.999.999-99');
         $('#phone').mask('(99) 99999-9999');
         $('#zip_code').mask('99999-999');
+
+        // City ===================================================================
+        $('.city_id').select2({
+            theme: "bootstrap4",
+            placeholder: 'Cidade',
+            ajax: {
+                url: '{{ route('autocompletecity') }}',
+                dataType: 'json',
+                delay: 250,
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.description + "/" + item.state,
+                                id: item.id
+                            }
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+        $('.city_id').on('change', function (e) {
+            var title = $(this).select2('data')[0].text;
+            $('#city_description').val(title);
+        });
     });
 </script>
 @endsection

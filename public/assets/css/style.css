@@ -2581,3 +2581,10 @@ a.badge-dark:focus, a.badge-dark.focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
+
+.select2-container{
+    width: 100%!important;
+}
+.select2-search--dropdown .select2-search__field {
+    width: 98%;
+}

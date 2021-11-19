@@ -21,8 +21,7 @@ class CreateMedicalAppointmentTable extends Migration
             $table->bigInteger('doctor_id')->unsigned();
             $table->bigInteger('units_id')->unsigned();
             $table->string('tab_number', 45);
-            $table->dateTime('tab_datetime');
-            $table->dateTime('schedule_datetime')->nullable();
+            $table->dateTime('schedule_datetime');
             $table->char('tab_central_vacancy', 1);
             $table->text('comments')->nullable();
             $table->text('files')->nullable();

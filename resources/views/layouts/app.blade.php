@@ -36,9 +36,11 @@
     <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/@fortawesome/fontawesome-pro/css/all.min.css') }}" rel="stylesheet">
-
+    <!-- Calender -->
+    <link href="{{ asset('assets/vendor/gijgo/css/gijgo.css') }}" rel="stylesheet" type="text/css">
     <!-- Select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/select2/css/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/select2/css/select2-bootstrap4.min.css') }}" rel="stylesheet" />
 
     <!-- CSS Principal -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -127,7 +129,7 @@
 @toastr_render
 
 <!-- JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
 <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
 <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
@@ -135,8 +137,11 @@
 <script src="{{ asset('assets/vendor/purecounter/purecounter.js') }}"></script>
 <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<!-- Calender -->
+<script src="{{ asset('assets/vendor/gijgo/js/gijgo.js') }}"></script>
+<script src="{{ asset('assets/vendor/gijgo/js/messages.pt-br.js') }}" type="text/javascript"></script>
 <!-- Select2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="{{ asset('assets/vendor/select2/js/select2.min.js') }}"></script>
 <!-- Mask form -->
 <script src="{{ asset('assets/js/jquery_mask/jquery.mask.min.js') }}"></script>
 <!-- JS Principal -->

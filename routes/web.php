@@ -27,6 +27,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name
 
 Route::get('/', [SiteController::class, 'index'])->name('home');
 
+Route::get('autocompletecity', [AutoCompleteController::class, 'autocompletecity'])->name('autocompletecity');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/painel', [PainelController::class, 'index'])->name('painel');
 });

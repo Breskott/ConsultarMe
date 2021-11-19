@@ -106,4 +106,25 @@ class AutoCompleteController extends Controller{
             return response()->json($data);
         }
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function autocompletecity(Request $request)
+    {
+        if($request->has('q')) {
+            $data = Cities::select(['description', 'state', 'id'])
+                ->where("description", "LIKE", "%{$request->get('q')}%")
+                ->get();
+
+            return response()->json($data);
+        }
+        else {
+            $data = Cities::select(['description', 'state', 'id'])->get();
+
+            return response()->json($data);
+        }
+    }
 }
