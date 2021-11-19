@@ -56,7 +56,9 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => 'check-permission:admin|agente|municipe'], function () {
-
+        Route::get('generate-pdf/{id}', [MedicalAppointmentsController::class, 'generatePDF'])->name('generate-pdf');
+        Route::get('/medical_patients', [MedicalAppointmentsController::class, 'indexPatients'])->name('medical_patients');
+        Route::get('/medical_show/{id}', [MedicalAppointmentsController::class, 'showPatients'])->name('medical_show');
     });
 });
 Auth::routes();

@@ -74,7 +74,7 @@ class MedicalAppointment extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function cities()
+    public function city()
     {
         return $this->belongsTo(Cities::class, 'city_id');
     }

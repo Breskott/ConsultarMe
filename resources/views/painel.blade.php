@@ -100,7 +100,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical fa-3x mr-2"></i></br>Consultas</a>
+                                            <a href="{{ route('medical_patients') }}" class="btn btn-primary btn-lg btn-block btn-huge"> <i class="fad fa-book-medical fa-3x mr-2"></i></br>Consultas</a>
                                         </div>
                                     </div>
                                 </div>

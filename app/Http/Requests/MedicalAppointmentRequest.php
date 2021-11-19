@@ -31,7 +31,7 @@ class MedicalAppointmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'pacient_id' => ['required'],
+            'patient_id' => ['required'],
             'exam_speciality_id' => ['required'],
             'doctor_id' => ['required'],
             'units_id' => ['required'],
@@ -42,7 +42,7 @@ class MedicalAppointmentRequest extends FormRequest
             'number' => ['required', 'string', 'max:45'],
             'distric' => ['required', 'string', 'max:255'],
             'city_id' => ['required'],
-            'files' => ['nullable', 'string'],
+            'files' => ['nullable'],
             'comments' => ['nullable', 'string', 'max:8000']
         ];
     }
@@ -56,7 +56,7 @@ class MedicalAppointmentRequest extends FormRequest
 
     public function attributes(){
         return [
-            'pacient_id' => 'Paciente',
+            'patient_id' => 'Paciente',
             'exam_speciality_id' => 'Exame/Especialidade',
             'doctor_id' => 'Médico',
             'units_id' => 'Posto de Saúde',
