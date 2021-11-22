@@ -78,7 +78,13 @@
 
                         <div class="row gy-4">
                             <div class="col-lg-12">
-                                <form action="#" method="post" class="php-email-form">
+                                @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                @endif
+                                <form action="{{ route('contact') }}" method="post" class="php-email-form">
+                                    @csrf
                                     <div class="row gy-4">
                                         <div class="col-md-6">
                                             <input type="text" name="name" class="form-control" placeholder="Seu nome"

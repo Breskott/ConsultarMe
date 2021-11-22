@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AutoCompleteController;
 use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\ExamSpecialtyController;
 use App\Http\Controllers\MedicalAppointmentsController;
@@ -28,6 +29,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name
 Route::get('/', [SiteController::class, 'index'])->name('home');
 
 Route::get('autocompletecity', [AutoCompleteController::class, 'autocompletecity'])->name('autocompletecity');
+
+Route::post('/contact', [ContactController::class, 'mailSend'])->name('contact');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/painel', [PainelController::class, 'index'])->name('painel');
