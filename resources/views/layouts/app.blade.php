@@ -97,7 +97,11 @@
                     <h4>Links Úteis</h4>
                     <ul>
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('home') }}">Início</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="{{ route('medical_appointments.index') }}">Consultas</a></li>
+                        @if((Auth::user()->is_permission == 1) || (Auth::user()->is_permission == 2))
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('medical_appointments.index') }}">Consultas</a></li>
+                        @else
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ route('medical_patients') }}">Consultas</a></li>
+                        @endif
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('login') }}">Entrar</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="{{ route('register') }}">Cadastro</a></li>
                     </ul>
